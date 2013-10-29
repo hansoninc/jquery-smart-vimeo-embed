@@ -28,10 +28,11 @@
 			var options = this.options;
 
 			$(this.element).each(function (i, e) {
-				var id = $(e).data(options.idSelectorName);
+				var $e = $(e);
+				var id = $e.data(options.idSelectorName);
 
 				// only execute on non-vimeo images
-				if (id && !/VIMEO/i.test($(e).attr('src'))) {
+				if (id && !/VIMEO/i.test($e.attr('src'))) {
 
 					// build Vimeo JSON URL
 					var url = options.vimeoPatternUrl + id + '&autoplay=' + options.autoplay + '&width=' + options.width;
@@ -40,14 +41,15 @@
 					$.getJSON(url, function(data){
 						if (data) {
 
+
 							// add wrapper for play icon positioning
-							$(e).wrap('<div class="vimeo-wrapper" />');
+							$e.wrap('<div class="vimeo-wrapper" />');
 
 							// swap placeholder image with video thumbnail
-							$(e).attr('src', data.thumbnail_url);
+							$e.attr('src', data.thumbnail_url);
 
 							// add play icon and click event listener
-							$(e).parent().addClass('play-icon').on('click', function(){
+							$e.parent().addClass('play-icon').on('click', function(){
 								var $this = $(this);
 
 								// only append video once
