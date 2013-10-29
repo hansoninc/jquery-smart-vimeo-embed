@@ -26,7 +26,7 @@ Create a placeholder image with a **data-vimeo-id** attribute containing the Vim
 <img src="http://placehold.it/640x360" class="vimeo-thumb" data-vimeo-id="1084537" />
 ```
 
-Call script, supplying your images to 
+Call script, supplying your images to the plugin.
 
 ```javascript
 $('.video-thumb').smartVimeoEmbed();
