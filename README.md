@@ -13,8 +13,8 @@ Include script after the jQuery library:
 <script src="/path/to/jquery-smartvimeoembed.min.js"></script>
 ```
 
-Include supplied CSS for play icon, either with a **link** tag or by copying into your site's
-CSS.
+Include supplied CSS for play icon, either with a link tag or by copying into your site's
+CSS. You can use a custom play icon by updating the CSS.
 
 ```html
 <link rel="stylesheet" href="css/temp.css" type="text/css" />
