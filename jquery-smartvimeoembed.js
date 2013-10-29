@@ -1,8 +1,9 @@
-/*!
- * jQuery Smart Vimeo Embed
- * Original author: Warren L. Parsons
- * version: 1.0.0 (Tues, Oct. 29, 2013)
- * Licensed under the MIT license
+/*
+ *	jQuery Smart Vimeo Embed - v1.0.0
+ *	Author: Warren L. Parsons
+ *	Company: Hanson, Inc.
+ *
+ *	Licensed under the MIT license
  */
 
 ;(function ( $, window, document, undefined ) {
