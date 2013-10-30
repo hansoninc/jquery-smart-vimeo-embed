@@ -1,5 +1,5 @@
 /*
- *	jQuery Smart Vimeo Embed - v1.0.0
+ *	jQuery Smart Vimeo Embed - v1.0.1
  *	Author: Warren L. Parsons
  *	Company: Hanson, Inc.
  *
@@ -11,7 +11,7 @@
 	var pluginName = "smartVimeoEmbed",
 	defaults = {
 		idSelectorName: 'vimeo-id',
-		vimeoPatternUrl: 'http://vimeo.com/api/oembed.json?url=http://vimeo.com/',
+		vimeoPatternUrl: 'http://vimeo.com/api/oembed.json?url=http%3A%2F%2Fvimeo.com/',
 		autoplay: true,
 		width: 640
 	};
@@ -36,12 +36,14 @@
 				if (id && !/VIMEO/i.test($e.attr('src'))) {
 
 					// build Vimeo JSON URL
-					var url = options.vimeoPatternUrl + id + '&autoplay=' + options.autoplay + '&width=' + options.width;
+					var url = options.vimeoPatternUrl + id + '&autoplay=' + options.autoplay + '&width=' + options.width + '&callback=?';
 
 					// fetch video data from Vimeo
-					$.getJSON(url, function(data){
-						if (data) {
-
+					$.ajax({
+						url: url,
+						dataType: 'jsonp',
+						success: function(data){
+							$('#output').text(JSON.stringify(data));
 
 							// add wrapper for play icon positioning
 							$e.wrap('<div class="vimeo-wrapper" />');
@@ -50,14 +52,15 @@
 							$e.attr('src', data.thumbnail_url);
 
 							// add play icon and click event listener
-							$e.parent().addClass('play-icon').on('click', function(){
+							$e.parent().prepend('<span class="play-icon"/>').on('click', function(){
 								var $this = $(this);
 
 								// only append video once
 								if ( !$this.find('iframe').length ) {
 
-									// append video iframe and hide image
-									$this.removeClass('play-icon').append(data.html).find('img').hide();
+									// append video iframe and hide poster
+									// image and play icon
+									$this.append(data.html).find('img, .play-icon').hide();
 								}
 							});
 						}

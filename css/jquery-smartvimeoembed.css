@@ -4,8 +4,9 @@
 	cursor: pointer;
 }
 
-.vimeo-wrapper.play-icon:before {
+.vimeo-wrapper .play-icon {
 	position: absolute;
+	z-index: 1000;
 	content: '';
 	display: block;
 	width: 100%;
