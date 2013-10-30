@@ -17,7 +17,7 @@ Include supplied CSS for play icon, either with a link tag or by copying into yo
 CSS. You can use a custom play icon by updating the CSS.
 
 ```html
-<link rel="stylesheet" href="css/temp.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery-smartvimeoembed.css" type="text/css" />
 ```
 
 Create a placeholder image with a **data-vimeo-id** attribute containing the Vimeo ID.
