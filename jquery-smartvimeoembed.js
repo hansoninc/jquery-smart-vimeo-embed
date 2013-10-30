@@ -1,5 +1,5 @@
 /*
- *	jQuery Smart Vimeo Embed - v1.0.1
+ *	jQuery Smart Vimeo Embed - v1.1.0
  *	Author: Warren L. Parsons
  *	Company: Hanson, Inc.
  *
@@ -13,7 +13,9 @@
 		idSelectorName: 'vimeo-id',
 		vimeoPatternUrl: 'http://vimeo.com/api/oembed.json?url=http%3A%2F%2Fvimeo.com/',
 		autoplay: true,
-		width: 640
+		width: 640,
+		onComplete: function(){},
+		onError: function(){}
 	};
 
 	function Plugin( element, options ) {
@@ -63,6 +65,15 @@
 									$this.append(data.html).find('img, .play-icon').hide();
 								}
 							});
+
+							if (options.onComplete && typeof(options.onComplete) === 'function') {
+								options.onComplete.call(this);
+							}
+						},
+						error: function(errorSender, errorMsg){
+							if (options.onError && typeof(options.onError) === 'function') {
+								options.onError.call(this);
+							}
 						}
 					});
 				}

@@ -41,3 +41,12 @@ Vimeo video when activated.
 * **width**: (optional) Set width in pixels of video player and thumbnail. Height will scale proportionally. (default: 640)
 * **autoplay**: (optional) Determine whether video should play automatically when
 activated (default: true)
+* **onComplete**: (optional) Callback function to fire after AJAX request
+completes. Fires once for each video.
+* **onError**: (optional) Function to run if AJAX request fails.
+
+
+### Browser Support
+
+This plugin has been tested and works in IE8/9, modern versions of Chrome, Firefox, and
+Safari.
