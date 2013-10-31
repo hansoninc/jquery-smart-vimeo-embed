@@ -1,0 +1,37 @@
+{
+	"name": "smartvimeoembed",
+	"title": "jQuery Smart Vimeo Embed",
+	"description": "Add Vimeo videos to your website using only their ID. Automatically retrieves the video thumbnail, and only loads videos when they are clicked, maximizing page performance.",
+	"keywords": [
+		"jquery",
+		"vimeo",
+		"video",
+		"performance",
+		"thumbnail",
+		"automatic",
+		"embed"
+	],
+	"version": "1.1.1",
+	"author": {
+		"name": "Warren L. Parsons",
+		"url": "http://hansoninc.com"
+	},
+	"maintainers": [
+		{
+		"name": "Warren L. Parsons",
+		"email": "wparsons@gmail.com",
+		"url": "http://hansoninc.com"
+	}
+	],
+	"licenses": [
+		{
+		"type": "MIT",
+		"url": "https://github.com/hansoninc/jquery-smart-vimeo-embed/blob/master/LICENSE"
+	}
+	],
+	"homepage": "https://github.com/hansoninc/jquery-smart-vimeo-embed",
+	"docs": "https://github.com/hansoninc/jquery-smart-vimeo-embed",
+	"download": "https://github.com/hansoninc/jquery-smart-vimeo-embed",
+	"dependencies": {
+		"jquery": ">=1.7"}
+}
