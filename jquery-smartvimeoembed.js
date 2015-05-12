@@ -7,6 +7,7 @@
  */
 
 ;(function ( $, window, document, undefined ) {
+	var count = 0;
 
 	var pluginName = "smartVimeoEmbed",
 	defaults = {
@@ -30,6 +31,8 @@
 		init: function() {
 			var options = this.options;
 
+			console.log(this);
+
 			$(this.element).each(function (i, e) {
 				var $e = $(e);
 				var id = $e.data(options.idSelectorName);
@@ -38,7 +41,7 @@
 				if (id && !/VIMEO/i.test($e.attr('src'))) {
 
 					// build Vimeo JSON URL
-					var url = options.vimeoPatternUrl + id + '&autoplay=' + options.autoplay + '&width=' + options.width + '&callback=?';
+					var url = options.vimeoPatternUrl + id + '&autoplay=' + options.autoplay + '&width=' + options.width + '&api=1' + '&player_id=' + id + '&callback=?';
 
 					// fetch video data from Vimeo
 					$.ajax({
@@ -63,6 +66,25 @@
 									// append video iframe and hide poster
 									// image and play icon
 									$this.append(data.html).find('img, .play-icon').hide();
+
+									var iframe = $('iframe');
+									var player = $f(iframe);
+
+									console.log(player);
+									
+									player.addEvent('ready', function() {
+										player.addEvent('pause', onPause);
+									});
+
+									iframe.find('button').on('pause', function(){
+										alert('test');
+									});
+
+									function onPause() {
+										// video has been paused or has completed
+										alert('weve been paused');
+									}
+
 								}
 
 								if (options.onComplete && typeof(options.onComplete) === 'function') {
@@ -88,5 +110,6 @@
 			}
 		});
 	};
+
 
 })( jQuery, window, document );
